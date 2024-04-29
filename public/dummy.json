@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Product 1",
+    "price": 19.99,
+    "imageUrl": "https://example.com/product1.jpg",
+    "description": "Description of product 1",
+    "review": "Good product, satisfied with the purchase."
+  },
+  {
+    "id": 2,
+    "title": "Product 2",
+    "price": 29.99,
+    "imageUrl": "https://example.com/product2.jpg",
+    "description": "Description of product 2",
+    "review": "Excellent quality, highly recommend."
+  },
+  {
+    "id": 3,
+    "title": "Product 3",
+    "price": 39.99,
+    "imageUrl": "https://example.com/product3.jpg",
+    "description": "Description of product 3",
+    "review": "Average product, needs improvement."
+  },
+  {
+    "id": 4,
+    "title": "Product 4",
+    "price": 49.99,
+    "imageUrl": "https://example.com/product4.jpg",
+    "description": "Description of product 4",
+    "review": "Great value for the price, satisfied customer."
+  },
+  {
+    "id": 5,
+    "title": "Product 5",
+    "price": 59.99,
+    "imageUrl": "https://example.com/product5.jpg",
+    "description": "Description of product 5",
+    "review": "Poor quality, disappointed with the purchase."
+  },
+  {
+    "id": 6,
+    "title": "Product 6",
+    "price": 69.99,
+    "imageUrl": "https://example.com/product6.jpg",
+    "description": "Description of product 6",
+    "review": "Impressive product, exceeded expectations."
+  },
+  {
+    "id": 7,
+    "title": "Product 7",
+    "price": 79.99,
+    "imageUrl": "https://example.com/product7.jpg",
+    "description": "Description of product 7",
+    "review": "Decent product, would purchase again."
+  },
+  {
+    "id": 8,
+    "title": "Product 8",
+    "price": 89.99,
+    "imageUrl": "https://example.com/product8.jpg",
+    "description": "Description of product 8",
+    "review": "Terrible quality, regret buying."
+  },
+  {
+    "id": 9,
+    "title": "Product 9",
+    "price": 99.99,
+    "imageUrl": "https://example.com/product9.jpg",
+    "description": "Description of product 9",
+    "review": "Satisfactory product, nothing exceptional."
+  },
+  {
+    "id": 10,
+    "title": "Product 10",
+    "price": 109.99,
+    "imageUrl": "https://example.com/product10.jpg",
+    "description": "Description of product 10",
+    "review": "Highly disappointed, wouldn't recommend."
+  }
+]
