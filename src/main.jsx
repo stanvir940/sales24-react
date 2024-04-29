@@ -1,32 +1,45 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./error/error-page.jsx";
-import Root from "./routes/root.jsx";
-import SignUp from "./components/signUp/SignUp.jsx";
 import Home from "./components/home/Home.jsx";
-import Page from "./components/product-page/Page.jsx";
+import Layout from "./components/Layout.jsx";
+import MenFashion from "./components/men-fashion/MenFashion.jsx";
+import Page from "./components/product/ProductDetails.jsx";
+import RetailProduct from "./components/retail/RetailProduct.jsx";
+import SignUp from "./components/signUp/SignUp.jsx";
+import WomenFashion from "./components/women-fashion/WomenFashion.jsx";
+import ErrorPage from "./error/error-page.jsx";
+import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
-    errorElement: <ErrorPage></ErrorPage>,
+    element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "/signUp",
+        path: "signUp",
         element: <SignUp />,
       },
       {
-        path: "/home",
+        path: "",
         element: <Home />,
-        children: [
-          {
-            path: "page/:id",
-            element: <Page></Page>,
-          },
-        ],
+      },
+      {
+        path: "/product-details/:id",
+        element: <Page />,
+      },
+      {
+        path: "/retail-product",
+        element: <RetailProduct />,
+      },
+      {
+        path: "/women-fashion",
+        element: <WomenFashion />,
+      },
+      {
+        path: "/men-fashion",
+        element: <MenFashion />,
       },
     ],
   },

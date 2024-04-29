@@ -1,9 +1,7 @@
 import { useParams } from "react-router-dom";
-
-const Page = () => {
+const ProductDetails = () => {
   const { id } = useParams();
-  console.log("dkfjlsk", id);
-
+  console.log(id);
   return (
     <div>
       <div className=" bg-slate-300">
@@ -65,4 +63,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ProductDetails;
