@@ -1,7 +1,26 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { getProductById } from "../../api/api";
+
 const ProductDetails = () => {
   const { id } = useParams();
-  console.log(id);
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setLoading(true);
+    getProductById(id)
+      .then(setProduct)
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!product) return <div>No Product Found</div>;
+
+  const { title } = product;
   return (
     <div>
       <div className=" bg-slate-300">
@@ -12,7 +31,7 @@ const ProductDetails = () => {
               alt=""
             />
           </div>
-          {/* <p>{title}</p> */}
+          <p>{title}</p>
           <label className="swap swap-flip text-9xl">
             {/* this hidden checkbox controls the state */}
             <input type="checkbox" />
