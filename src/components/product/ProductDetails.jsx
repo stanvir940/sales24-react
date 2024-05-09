@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../api/api";
+import { useCart } from "../context/PContext";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -20,9 +21,16 @@ const ProductDetails = () => {
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
-  if (!product) return <div>No Product Found</div>;
+  // if (!product) return <div>No Product Found</div>;
 
   const { title, price, description } = product;
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { addToCart } = useCart();
+  const handleCart = () => {
+    addToCart(product);
+  };
+
   return (
     <div>
       <div className=" bg-white w-90 p-5">
@@ -54,7 +62,9 @@ const ProductDetails = () => {
                 <button className="btn btn-success">Buy Now</button>
               </div>
               <div>
-                <button className="btn btn-warning">Add to Cart</button>
+                <button onClick={handleCart} className="btn btn-warning">
+                  Add to Cart
+                </button>
               </div>
             </div>
             <div className="border-t-2 border-gray-300 mt-5"></div>

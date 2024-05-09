@@ -11,6 +11,8 @@ import SignUp from "./components/signUp/SignUp.jsx";
 import WomenFashion from "./components/women-fashion/WomenFashion.jsx";
 import ErrorPage from "./error/error-page.jsx";
 import "./index.css";
+import { CartProvider } from "./components/context/CartProvider.jsx";
+import Cart from "./components/cart/Cart.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -41,12 +43,18 @@ const router = createBrowserRouter([
         path: "/men-fashion",
         element: <MenFashion />,
       },
+      {
+        path: "/cart",
+        element: <Cart></Cart>,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   </React.StrictMode>
 );

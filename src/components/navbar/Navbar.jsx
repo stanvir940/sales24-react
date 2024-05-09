@@ -6,6 +6,7 @@ const navRoutes = [
   { path: "/men-fashion", name: "Men Fashion" },
   { path: "/women-fashion", name: "Women Fashion" },
   { path: "/signUp", name: "Sign Up" },
+  { path: "/cart", name: "Cart" },
 ];
 
 const Navbar = () => {
@@ -76,6 +77,7 @@ const Navbar = () => {
               <span className="badge badge-sm indicator-item">8</span>
             </div>
           </div>
+
           <div
             tabIndex={0}
             className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"

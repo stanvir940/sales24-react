@@ -12,7 +12,7 @@ export const getAllProducts = async (): Promise<any> => {
   const endpoint = devMode ? "dummy.json" : "get-data";
   try {
     const response = await axiosInstance.get(endpoint);
-    console.log("dara", response.data);
+    // console.log("dara", response.data);
 
     return response.data;
   } catch (error) {
@@ -25,7 +25,7 @@ export const getAllProducts = async (): Promise<any> => {
 };
 
 export const getProductById = async (id: number): Promise<any> => {
-  console.log(id);
+  // console.log(id);
   const devMode = true;
   const endpoint = devMode ? `dummy.json` : `get-product/${id}`;
 
