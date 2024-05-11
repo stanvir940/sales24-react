@@ -1,15 +1,41 @@
 import { Link } from "react-router-dom";
+import { useUser } from "../context/UserProvider";
+import { getAuth, signOut } from "firebase/auth";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 const navRoutes = [
   { path: "", name: "Home" },
   { path: "/retail-product", name: "Retail Product" },
   { path: "/men-fashion", name: "Men Fashion" },
   { path: "/women-fashion", name: "Women Fashion" },
-  { path: "/signUp", name: "Sign Up" },
   { path: "/cart", name: "Cart" },
 ];
 
 const Navbar = () => {
+  const { user, setUser } = useUser();
+  console.log(user);
+
+  useEffect(() => {
+    const userFromCookie = Cookies.get("user");
+    if (userFromCookie) {
+      setUser(JSON.parse(userFromCookie));
+    }
+  }, []);
+
+  const handleSignout = () => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        setUser(null);
+        Cookies.remove("user");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.error("Error signing out:", error);
+      });
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -98,10 +124,14 @@ const Navbar = () => {
             className="btn btn-ghost btn-circle avatar"
           >
             <div className="w-10 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+              {user ? (
+                <img alt="Tailwind CSS Navbar component" src={user.photoURL} />
+              ) : (
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://cdn-icons-png.freepik.com/512/180/180658.png"
+                ></img>
+              )}
             </div>
           </div>
           <ul
@@ -109,14 +139,18 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
+              {user ? (
+                <button onClick={handleSignout}>Sign Out</button>
+              ) : (
+                <Link to="/signUp" className="justify-between">
+                  SignUp
+                  <span className="badge">New</span>
+                </Link>
+              )}
             </li>
 
             <li>
-              <a>Logout</a>
+              <a>Dummy</a>
             </li>
           </ul>
         </div>

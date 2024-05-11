@@ -13,6 +13,7 @@ import ErrorPage from "./error/error-page.jsx";
 import "./index.css";
 import { CartProvider } from "./components/context/CartProvider.jsx";
 import Cart from "./components/cart/Cart.jsx";
+import { UserProvider } from "./components/context/UserProvider.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -53,8 +54,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <CartProvider>
-      <RouterProvider router={router} />
-    </CartProvider>
+    <UserProvider>
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
+    </UserProvider>
   </React.StrictMode>
 );

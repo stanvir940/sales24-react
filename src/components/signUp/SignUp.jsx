@@ -1,10 +1,17 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
+import Cookies from "js-cookie";
 import { useState } from "react";
 import auth from "../../firebase/firebase.config";
+import { useUser } from "../context/UserProvider";
 
 const SignUp = () => {
   const [error, setError] = useState("");
-  const [user, setUser] = useState(null);
+  const { user, setUser } = useUser();
 
   const handledInput = (event) => {
     event.preventDefault();
@@ -24,10 +31,29 @@ const SignUp = () => {
       .then((userCredintial) => {
         // console.log(userCredintial.user);
         setUser(userCredintial.user);
+        Cookies.set("user", JSON.stringify(userCredintial.user), {
+          expires: 1,
+        });
       })
       .catch((error) => {
         setError(error.message);
         console.log(error.message);
+      });
+  };
+
+  const Auth = getAuth();
+  const Provider = new GoogleAuthProvider();
+  const signUpGoogle = () => {
+    setError("");
+    signInWithPopup(Auth, Provider)
+      .then((result) => {
+        setUser(result.user);
+        Cookies.set("user", JSON.stringify(result.user), { expires: 1 });
+        // console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(error.message);
       });
   };
 
@@ -80,6 +106,11 @@ const SignUp = () => {
               </button>
             </div>
           </form>
+          <div className=" flex justify-center">
+            <button className="btn btn-primary mb-3" onClick={signUpGoogle}>
+              Sign Up with Google
+            </button>
+          </div>
         </div>
       </div>
     </div>

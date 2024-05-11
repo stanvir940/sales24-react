@@ -13,7 +13,7 @@ const Product = (product) => {
     <Link to={`/product-details/${id}`}>
       <div className="bg-base-100 shadow-xl border-amber-600 rounded-lg">
         <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+          src="https://cdn0.weddingwire.in/article/2617/3_2/960/jpg/97162-latest-salwar-suit-designs-photos.jpeg"
           alt="Shoes"
         />
         <div className="flex flex-col gap-3 mt-4 p-4">
