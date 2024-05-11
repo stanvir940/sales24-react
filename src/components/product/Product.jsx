@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 
 const Product = (product) => {
-  const { id, price, title, description } = product.product;
+  const { id, name, price, title, image } = product.product;
+
+  console.log(product);
 
   // const handledClick = () => {
   //   {
@@ -16,9 +18,10 @@ const Product = (product) => {
           src="https://cdn0.weddingwire.in/article/2617/3_2/960/jpg/97162-latest-salwar-suit-designs-photos.jpeg"
           alt="Shoes"
         />
+
         <div className="flex flex-col gap-3 mt-4 p-4">
           <h2 className="card-title">{title} </h2>
-          <p>{description}</p>
+          <p>{name}</p>
 
           <div className="flex justify-between">
             <p className="font-bold text-cyan-400 flex items-center">

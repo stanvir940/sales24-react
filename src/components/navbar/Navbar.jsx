@@ -14,7 +14,7 @@ const navRoutes = [
 
 const Navbar = () => {
   const { user, setUser } = useUser();
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     const userFromCookie = Cookies.get("user");
