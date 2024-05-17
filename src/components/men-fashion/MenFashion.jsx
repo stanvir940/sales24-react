@@ -16,7 +16,7 @@ const MenFashion = () => {
         "http://127.0.0.1:8000/api/products?category=men"
       );
       setProducts(response.data.data);
-      // console.log(response.data);
+
       // Assuming Laravel pagination returns data field containing products
     } catch (error) {
       console.error("Error fetching products:", error);
