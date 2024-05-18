@@ -7,11 +7,12 @@ const Product = (product) => {
 
   return (
     <Link to={`/product-details/${id}`}>
-      <div className="bg-base-100 shadow-xl border-amber-600 rounded-lg">
+      <div className="bg-base-100 shadow-xl border-amber-600 rounded-lg min-h-80">
         {image ? (
           <img
             src={`http://127.0.0.1:8000/uploads/products/${image}`}
             alt="productsPic"
+            className=" max-h-80 w-full"
           />
         ) : (
           <img
