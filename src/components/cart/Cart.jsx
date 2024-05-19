@@ -2,10 +2,10 @@ import { useCart } from "../context/PContext";
 
 const Cart = () => {
   const { cartItems } = useCart();
-  console.log(cartItems);
+  // console.log(cartItems);
   return (
-    <div className="p-10">
-      <table className="table border-2 font-light">
+    <div className="p-10 text-black">
+      <table className="table border-2 font-light border-black">
         <thead>
           <th>title</th>
           <th>id</th>
@@ -16,10 +16,14 @@ const Cart = () => {
         <tbody>
           {cartItems.map((row, index) => (
             <tr key={index}>
-              <td>{row.title} </td>
+              <td>{row.name} </td>
               <td>{row.id} </td>
               <td>
-                <img src={row.imageUrl} alt="" />
+                <img
+                  src={`http://127.0.0.1:8000/uploads/products/${row.image}`}
+                  alt=""
+                  className=" w-5"
+                />
               </td>
               <td>{row.price} </td>
               <td>

@@ -68,7 +68,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">
-          daisyUI
+          Sales24
         </Link>
       </div>
 

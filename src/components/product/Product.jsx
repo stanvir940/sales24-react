@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Product = (product) => {
   const { id, name, price, title, image } = product.product;
 
-  console.log(product);
+  // console.log(product);
 
   return (
     <Link to={`/product-details/${id}`}>
